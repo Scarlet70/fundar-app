@@ -17,20 +17,6 @@ interface FormProps {
     nextStep: () => void;
 }
 
-interface CurrencyOption {
-    value: string;
-    label: string;
-    symbol: string;
-}
-
-const currencies: CurrencyOption[] = [
-    {
-        value: "USD",
-        label: "US Dollar",
-        symbol: "$",
-    },
-];
-
 export default function IncomeStep({ nextStep }: FormProps) {
     const baseCurrency = useAuthStore((state) => state.settings?.baseCurrency);
     const { register, control } = useFormContext<IncomeFormValues>();

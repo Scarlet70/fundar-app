@@ -7,12 +7,13 @@ import { router as userRouter } from "./routes/userRoutes.js";
 import { router as settingsRouter } from "./routes/settingsRoutes.js";
 import globalErrorHandler from "./controllers/errorController.js";
 import { protect } from "./middleware/authMiddleware.js";
+import { env } from "./config/env.js";
 
 const app = express();
 
 app.use(
     cors({
-        origin: "fundar-webapp-two.vercel.app", //Fundar frontend in dev mode
+        origin: env.FRONTEND_URL || "https://fundar-webapp-two.vercel.app",
         credentials: true,
     }),
 );

@@ -19,6 +19,11 @@ interface FormProps {
     netIncome: number;
 }
 
+type AllocationOption = {
+    value: string;
+    label: string;
+};
+
 export default function AllocationStep({ previousStep, netIncome }: FormProps) {
     const baseCurrency = useAuthStore((state) => state.settings?.baseCurrency);
 
@@ -51,14 +56,15 @@ export default function AllocationStep({ previousStep, netIncome }: FormProps) {
 
     const remainingBalance = netIncome - allocated;
 
-    const allocationOptions = useAuthStore((state) =>
-        state.settings?.defaultAllocations
-            .map((option) => option.name)
-            .sort((a, b) => a.localeCompare(b))
-            .map((name) => ({
-                label: name,
-                value: name,
-            })),
+    const allocationOptions: AllocationOption[] | undefined = useAuthStore(
+        (state) =>
+            state.settings?.defaultAllocations
+                .map((option) => option.name)
+                .sort((a, b) => a.localeCompare(b))
+                .map((name) => ({
+                    label: name,
+                    value: name,
+                })),
     );
 
     return (

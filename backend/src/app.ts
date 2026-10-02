@@ -12,7 +12,7 @@ const app = express();
 
 app.use(
     cors({
-        origin: "http://localhost:5173", //Fundar frontend in dev mode
+        origin: "fundar-webapp-two.vercel.app", //Fundar frontend in dev mode
         credentials: true,
     }),
 );

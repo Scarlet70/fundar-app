@@ -252,16 +252,3 @@
 body {
     font-family: "Cabin";
 }
-
-.test {
-    background-color: #171717;
-}
-
-.test:hover {
-    background-color: #686666;
-}
-
-[data-sonner-toast] [data-close-button] svg {
-    width: 16px !important;
-    height: 16px !important;
-}

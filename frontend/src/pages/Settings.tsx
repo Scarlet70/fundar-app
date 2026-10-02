@@ -838,10 +838,6 @@ const Settings = () => {
                     </form>
                 </DialogContent>
             </Dialog>
-            <div className="test w-10 h-10 border border-rose-300">
-                {" "}
-                {newAllocationOption}
-            </div>
         </article>
     );
 };

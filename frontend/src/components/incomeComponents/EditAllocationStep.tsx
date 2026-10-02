@@ -14,13 +14,17 @@ import Creatable from "react-select/creatable";
 import { Controller } from "react-hook-form";
 import { useAuthStore } from "@/stores/authStore";
 import { useIncomeStore } from "@/stores/incomeStore";
-import { useAllocationStore } from "@/stores/allocationStore";
 
 interface EditFormProps {
     selectedIncomeId: string;
     previousStep: () => void;
     netIncome: number;
 }
+
+type AllocationOption = {
+    value: string;
+    label: string;
+};
 
 export default function EditAllocationStep({
     selectedIncomeId,
@@ -33,15 +37,17 @@ export default function EditAllocationStep({
         (income) => income._id === selectedIncomeId,
     );
 
-    const allocationOptions = useAllocationStore(
-        (state) => state.allocationOptions,
-    )
-        .map((option) => option.name)
-        .sort((a, b) => a.localeCompare(b))
-        .map((name) => ({
-            label: name,
-            value: name,
-        }));
+    //later please fix this block properly
+    const allocationOptions: AllocationOption[] | undefined = useAuthStore(
+        (state) =>
+            state.settings?.defaultAllocations
+                .map((option) => option.name)
+                .sort((a, b) => a.localeCompare(b))
+                .map((name) => ({
+                    label: name,
+                    value: name,
+                })),
+    );
 
     const { control, register } = useFormContext<EditIncomeFormValues>();
     const { errors } = useFormState<EditIncomeFormValues>({
@@ -51,11 +57,6 @@ export default function EditAllocationStep({
     const { fields, append, remove } = useFieldArray({
         control,
         name: "allocations",
-    });
-
-    const currency = useWatch({
-        control: control,
-        name: "currency",
     });
 
     const allocations = useWatch({

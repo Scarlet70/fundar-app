@@ -12,7 +12,7 @@ import {
     Plus,
     Banknote,
 } from "lucide-react";
-import { currencies } from "../data/settingsData";
+import { currencies } from "../data/currencyData";
 import { useState, useRef, useEffect } from "react";
 import {
     Select,

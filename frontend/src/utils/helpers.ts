@@ -1,4 +1,4 @@
-import type { Income, IncomeType } from "@/types/income";
+import type { IncomeType } from "@/types/income";
 import type { IncomeFormValues } from "@/components/incomeComponents/IncomeWizard";
 import type { EditIncomeFormValues } from "@/components/incomeComponents/EditIncomeWizard";
 import type { AllocationFormValues } from "@/types/income";

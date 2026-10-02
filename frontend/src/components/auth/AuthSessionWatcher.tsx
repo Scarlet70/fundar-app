@@ -1,11 +1,11 @@
-import { useEffect } from "react";
+/* import { useEffect } from "react";
 import { jwtDecode } from "jwt-decode";
 import { useLocation, useNavigate } from "react-router-dom";
-import { useAuthStore } from "@/stores/authStore";
+
 
 type JwtPayload = {
     exp: number;
-};
+}; */
 /* 
 const AuthSessionWatcher = () => {
     const accessToken = useAuthStore((state) => state.accessToken);
@@ -63,6 +63,8 @@ const AuthSessionWatcher = () => {
 
     return null;
 }; */
+
+import { useAuthStore } from "@/stores/authStore";
 
 const AuthSessionWatcher = () => {
     const hasHydrated = useAuthStore((state) => state.hasHydrated);

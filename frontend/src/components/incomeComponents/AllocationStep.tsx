@@ -10,7 +10,6 @@ import { Input } from "../ui/input";
 import { PiggyBank, Plus, Trash, TriangleAlert } from "lucide-react";
 import type { IncomeFormValues } from "./IncomeWizard";
 import type { AllocationFormValues } from "@/types/income";
-import { useAllocationStore } from "@/stores/allocationStore";
 import Creatable from "react-select/creatable";
 import { Controller } from "react-hook-form";
 import { useAuthStore } from "@/stores/authStore";
@@ -52,15 +51,15 @@ export default function AllocationStep({ previousStep, netIncome }: FormProps) {
 
     const remainingBalance = netIncome - allocated;
 
-    const allocationOptions = useAllocationStore(
-        (state) => state.allocationOptions,
-    )
-        .map((option) => option.name)
-        .sort((a, b) => a.localeCompare(b))
-        .map((name) => ({
-            label: name,
-            value: name,
-        }));
+    const allocationOptions = useAuthStore((state) =>
+        state.settings?.defaultAllocations
+            .map((option) => option.name)
+            .sort((a, b) => a.localeCompare(b))
+            .map((name) => ({
+                label: name,
+                value: name,
+            })),
+    );
 
     return (
         <section>

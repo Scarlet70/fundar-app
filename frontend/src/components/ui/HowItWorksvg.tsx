@@ -13,7 +13,6 @@ import {
     useMotionValueEvent,
 } from "motion/react";
 import { useRef, useEffect, useState } from "react";
-import { BlurFade } from "./blur-fade";
 
 import useWindowSize from "@/hooks/useWindowSize";
 

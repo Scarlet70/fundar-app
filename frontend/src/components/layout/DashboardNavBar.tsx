@@ -17,7 +17,7 @@ const DashboardNavBar = () => {
     const currentUser = useAuthStore((state) => state.user);
 
     return (
-        <header className="flex justify-between px-8 py-4 items-center dark:bg-black">
+        <header className="flex justify-between px-8 py-4 items-center">
             <h2 className="text-md flex gap-1">
                 <WalletCards /> Fundar
             </h2>

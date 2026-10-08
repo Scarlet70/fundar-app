@@ -4,6 +4,7 @@ import {
     useWatch,
     useFormState,
 } from "react-hook-form";
+import { useMemo } from "react";
 
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
@@ -26,6 +27,9 @@ type AllocationOption = {
 
 export default function AllocationStep({ previousStep, netIncome }: FormProps) {
     const baseCurrency = useAuthStore((state) => state.settings?.baseCurrency);
+    const defaultAllocations = useAuthStore(
+        (state) => state.settings?.defaultAllocations,
+    );
 
     const { control, register } = useFormContext<IncomeFormValues>();
     const { errors } = useFormState<IncomeFormValues>({
@@ -43,11 +47,6 @@ export default function AllocationStep({ previousStep, netIncome }: FormProps) {
         defaultValue: [],
     });
 
-    /* const currentIncome = useWatch({
-        control: control,
-        name: "source",
-    }); */
-
     const allocated = allocations.reduce(
         (sum: number, allocation: AllocationFormValues) =>
             sum + (allocation.budgetAmount || 0),
@@ -56,15 +55,16 @@ export default function AllocationStep({ previousStep, netIncome }: FormProps) {
 
     const remainingBalance = netIncome - allocated;
 
-    const allocationOptions: AllocationOption[] | undefined = useAuthStore(
-        (state) =>
-            state.settings?.defaultAllocations
-                .map((option) => option.name)
+    const allocationOptions: AllocationOption[] = useMemo(
+        () =>
+            defaultAllocations
+                ?.map((option) => option.name)
                 .sort((a, b) => a.localeCompare(b))
                 .map((name) => ({
                     label: name,
                     value: name,
-                })),
+                })) ?? [],
+        [defaultAllocations],
     );
 
     return (

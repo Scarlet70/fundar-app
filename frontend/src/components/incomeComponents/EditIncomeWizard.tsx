@@ -21,10 +21,6 @@ interface EditIncomeWizardProps {
     setIsSheetOpen: (isSheetOpen: boolean) => void;
 }
 
-/* type CurrencyOption = {
-   currency: "USD" | "NGN" | "GBP";
-}; */
-
 export interface EditIncomeFormValues {
     source: string;
     description: string;

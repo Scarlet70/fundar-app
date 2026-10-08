@@ -4,6 +4,7 @@ import {
     useWatch,
     useFormState,
 } from "react-hook-form";
+import { useMemo } from "react";
 
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
@@ -33,20 +34,24 @@ export default function EditAllocationStep({
 }: EditFormProps) {
     const incomes = useIncomeStore((state) => state.incomes);
     const baseCurrency = useAuthStore((state) => state.settings?.baseCurrency);
+    const defaultAllocations = useAuthStore(
+        (state) => state.settings?.defaultAllocations,
+    );
     const targetIncome = incomes.find(
         (income) => income._id === selectedIncomeId,
     );
 
     //later please fix this block properly
-    const allocationOptions: AllocationOption[] | undefined = useAuthStore(
-        (state) =>
-            state.settings?.defaultAllocations
-                .map((option) => option.name)
+    const allocationOptions: AllocationOption[] = useMemo(
+        () =>
+            defaultAllocations
+                ?.map((option) => option.name)
                 .sort((a, b) => a.localeCompare(b))
                 .map((name) => ({
                     label: name,
                     value: name,
-                })),
+                })) ?? [],
+        [defaultAllocations],
     );
 
     const { control, register } = useFormContext<EditIncomeFormValues>();

@@ -1,6 +1,7 @@
 import { GalleryVerticalEnd } from "lucide-react";
 
 import { SignupForm } from "@/components/signup-form";
+import SignupImage from "../assets/fundarsignupimg.jpg";
 
 const SignupPage = () => {
     return (
@@ -25,7 +26,7 @@ const SignupPage = () => {
             </div>
             <div className="relative hidden bg-muted lg:block">
                 <img
-                    src="/placeholder.svg"
+                    src={SignupImage}
                     alt="Image"
                     className="absolute inset-0 h-full w-full object-cover dark:brightness-[0.2] dark:grayscale"
                 />

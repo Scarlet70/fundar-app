@@ -13,10 +13,12 @@ import { AnimatedGridPattern } from "@/components/ui/animated-grid-pattern";
 const LandingPage = () => {
     return (
         <main className="fundar-font">
-            <header className="flex flex-row justify-between p-4 px-8 items-center fixed top-0 w-full [backdrop-filter:blur(8px)] z-50">
-                <span className="flex flex-row gap-1 text-xl">
+            <header className="flex flex-row justify-center lg:gap-35 gap-20 p-4 items-center fixed top-0 w-full [backdrop-filter:blur(8px)] z-50">
+                <span className="flex flex-row gap-1 items-center text-xl">
                     <WalletCards />
-                    <h2 className="font-semibold ">Fundar</h2>
+                    <h2 className="font-semibold lg:text-[1.5rem] text-[1.1rem]">
+                        Fundar
+                    </h2>
                 </span>
                 <Navbar />
                 <div className="flex flex-row gap-4 items-center">

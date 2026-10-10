@@ -115,7 +115,7 @@ const features = [
 
 const Features = () => {
     return (
-        <section className="flex flex-col lg:flex-row justify-between p-4 mb-25 overflow-hidden relative ">
+        <section className="flex flex-col lg:flex-row justify-between p-8 mb-60 overflow-hidden relative ">
             <Particles
                 quantity={300}
                 size={0.8}
@@ -124,8 +124,8 @@ const Features = () => {
                 color="var(--fundar-surface)"
                 className="absolute top-0 w-full h-full"
             />
-            <article className="flex flex-col gap-8 lg:w-[calc(50%-0.2rem)] w-full lg:pt-32 p-4  lg:p-2 mb-20 space-y-1 lg:space-y-6">
-                <h3 className="lg:text-[3.4rem] text-4xl text-slate-300">
+            <article className="flex flex-col gap-8 lg:w-[50%] w-full lg:pt-32 p-4  lg:p-2 mb-60 space-y-6 lg:space-y-8">
+                <h3 className="lg:text-[2.6rem] xl:text-[3.4rem] text-3xl text-slate-400">
                     Everything you need to <br />
                     <DiaTextReveal
                         className="w-full"
@@ -134,8 +134,8 @@ const Features = () => {
                         repeat
                         text={[
                             "plan your money with ease.",
-                            "stay in control of your finances.",
-                            "take control of your money.",
+                            "control your finances.",
+                            "take charge of your money.",
                         ]}
                     />
                 </h3>
@@ -150,7 +150,7 @@ const Features = () => {
                     </Button>
                 </Link>
             </article>
-            <article className="flex flex-col gap-4 lg:w-[calc(50%-0.2rem)] w-full p-4">
+            <article className="flex flex-col gap-4 lg:w-[50%] w-full p-4">
                 <h3 className="text-center text-3xl text-underline">
                     CORE FEATURES
                 </h3>

@@ -55,25 +55,25 @@ const Herosection = () => {
                 >
                     <div className="flex justify-center gap-2 lg:gap-4 text-xs">
                         <Badge
-                            className="px-3"
+                            className="lg:px-3 text-[0.7rem] lg:text-md "
                             variant={"fundar"}
                         >
                             smart allocations
                         </Badge>
                         <Badge
-                            className="px-3"
+                            className="lg:px-3 text-[0.7rem] lg:text-md"
                             variant={"blue"}
                         >
                             multiple currencies
                         </Badge>
                         <Badge
-                            className="px-3"
+                            className="lg:px-3 text-[0.7rem] lg:text-md"
                             variant={"positive"}
                         >
                             secure cloud sync
                         </Badge>
                         <Badge
-                            className="px-3"
+                            className="lg:px-3 text-[0.7rem] lg:text-md"
                             variant={"tech"}
                         >
                             AI insights

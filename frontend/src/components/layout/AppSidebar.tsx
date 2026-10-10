@@ -23,6 +23,7 @@ import {
     LogOut,
     ChevronsUpDown,
     ShieldCheck,
+    Home,
 } from "lucide-react";
 import { Button } from "../ui/button";
 import { useAuthStore } from "@/stores/authStore";
@@ -63,6 +64,11 @@ export function AppSidebar() {
             title: "Analytics",
             url: "/analytics",
             icon: ChartNoAxesCombined,
+        },
+        {
+            title: "Back to Home",
+            url: "/",
+            icon: Home,
         },
     ];
 

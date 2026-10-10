@@ -2,14 +2,16 @@ import axios from "axios";
 import { useAuthStore } from "@/stores/authStore";
 
 const api = axios.create({
-    baseURL: /* "http://localhost:5000/api/fundar/v1" */ import.meta.env
-        .VITE_API_URL,
+    baseURL: import.meta.env.PROD
+        ? import.meta.env.VITE_API_URL
+        : "http://localhost:5000/api/fundar/v1",
     timeout: 9000,
 });
 
 export const refreshApi = axios.create({
-    baseURL: /* "http://localhost:5000/api/fundar/v1" */ import.meta.env
-        .VITE_API_URL,
+    baseURL: import.meta.env.PROD
+        ? import.meta.env.VITE_API_URL
+        : "http://localhost:5000/api/fundar/v1",
     timeout: 9000,
 });
 

@@ -19,8 +19,7 @@ import useWindowSize from "@/hooks/useWindowSize";
 const DESKTOP_PATH =
     "M60 150 C170 40, 260 40, 360 150 S550 260, 650 150 S840 40, 940 150 S1080 260, 1140 150";
 
-const MOBILE_PATH =
-    "M160 60 V220 H80 V420 H240 V640 H120 V860 H260 V1080 H100 V1330 H160";
+const MOBILE_PATH = "M160 60 V500 H50 V940 H220 V1380 H80 V1820 H260 V2000";
 
 const HowItWorksvg = () => {
     const steps = [
@@ -33,8 +32,8 @@ const HowItWorksvg = () => {
                 "Record your salary, freelance earnings, business income, gifts, or any other source of money.",
             positionXM: "left-[40%]",
             positionYM: "-top-20",
-            positionXD: "-left-12",
-            positionYD: "-bottom-1",
+            positionXD: "-left-2",
+            positionYD: "-bottom-5",
         },
         {
             step: "two",
@@ -43,8 +42,8 @@ const HowItWorksvg = () => {
             title: "Know Your Cash on Hand",
             description:
                 "Fundar automatically subtracts taxes and deductions so you know exactly how much money is available to allocate.",
-            positionXM: "left-10",
-            positionYM: "top-60",
+            positionXM: "left-0",
+            positionYM: "top-100",
             positionXD: "left-55",
             positionYD: "-top-20.5",
         },
@@ -55,10 +54,10 @@ const HowItWorksvg = () => {
             title: "Allocate Every Dollar",
             description:
                 "Allocate Every Dollar Assign money to rent, food, transportation, savings, investments, or any custom category using either fixed amounts or percentages.",
-            positionXM: "left-50",
-            positionYM: "top-142",
-            positionXD: "left-119",
-            positionYD: "-bottom-15.5",
+            positionXM: "left-30",
+            positionYM: "top-222",
+            positionXD: "left-107",
+            positionYD: "-bottom-22.5",
         },
         {
             step: "four",
@@ -67,8 +66,8 @@ const HowItWorksvg = () => {
             title: "Record Expenses",
             description:
                 "Every expense automatically updates your remaining allocation so you always know how much is left.",
-            positionXM: "left-10",
-            positionYM: "top-220.5",
+            positionXM: "-left-5",
+            positionYM: "top-353.5",
             positionXD: "left-190",
             positionYD: "-top-12.5",
         },
@@ -80,9 +79,9 @@ const HowItWorksvg = () => {
             description:
                 "Monitor your financial health with beautiful reports and AI-powered recommendations.",
             positionXM: "left-40",
-            positionYM: "-bottom-8",
-            positionXD: "left-271",
-            positionYD: "bottom-8.5",
+            positionYM: "top-479.5",
+            positionXD: "left-246",
+            positionYD: "-bottom-7.5",
         },
     ];
     const { width } = useWindowSize();
@@ -101,7 +100,7 @@ const HowItWorksvg = () => {
         offset: ["start start", "end end"],
     });
 
-    const pathProgress = useTransform(scrollYProgress, [-0.05, 1], [0, 1]);
+    const pathProgress = useTransform(scrollYProgress, [-0.11, 1], [0, 1]);
 
     useEffect(() => {
         const unsubscribe = pathProgress.on("change", (progress) => {
@@ -122,7 +121,7 @@ const HowItWorksvg = () => {
         return () => unsubscribe();
     }, [pathProgress]);
 
-    const stepThresholds = [0, 0.16, 0.37, 0.63, 0.92];
+    const stepThresholds = [0, 0.16, 0.41, 0.69, 0.97];
 
     useMotionValueEvent(pathProgress, "change", (progress) => {
         let step = 0;
@@ -145,13 +144,15 @@ const HowItWorksvg = () => {
     return (
         <section
             ref={sectionRef}
-            className={isDesktop ? "relative h-[450vh]" : "relative"}
+            className={`
+               ${isDesktop ? "relative h-[450vh]" : "relative h-[230vh] "}
+            w-full bg-emerald-500`}
         >
             <article
                 className={
                     isDesktop
                         ? "sticky top-0 flex h-screen w-full items-center justify-center"
-                        : "relative w-full"
+                        : "relative w-full h-full"
                 }
             >
                 {/* =========================
@@ -260,11 +261,11 @@ const HowItWorksvg = () => {
                        MOBILE CANVAS
                     ========================== */
 
-                    <div className="relative h-362.5 w-[320px] shrink-0">
+                    <div className="relative mx-auto h-[2000px] w-[320px] shrink-0 bg-slate-400">
                         <svg
                             width="320"
-                            height="1450"
-                            viewBox="0 0 320 1450"
+                            height="2000"
+                            viewBox="0 0 320 2000"
                             className="absolute inset-0 h-full w-full"
                             fill="none"
                             xmlns="http://www.w3.org/2000/svg"
@@ -311,7 +312,7 @@ const HowItWorksvg = () => {
                             return isActive ? (
                                 <motion.div
                                     key={step.step}
-                                    className={`absolute ${step.positionXM} ${step.positionYM} flex w-2/3 flex-col gap-2 shadow-2xl [backdrop-filter:blur(8px)] rounded-2xl p-2 border-3 border-t-fundar-brand border-r-fundar-brand shadow-fundar-brand-soft`}
+                                    className={`absolute ${step.positionXM} ${step.positionYM} flex w-3/5 flex-col gap-2 shadow-2xl [backdrop-filter:blur(8px)] rounded-2xl p-2 border-3 border-t-fundar-brand border-r-fundar-brand shadow-fundar-brand-soft`}
                                     animate={{
                                         scale: 1.05,
                                         y: 4,
@@ -322,17 +323,19 @@ const HowItWorksvg = () => {
                                     }}
                                 >
                                     <div className="flex gap-4 items-center justify-around rounded-2xl bg-fundar-brand-muted p-4">
-                                        <step.icon size={30} />
-                                        <span className="text-2xl font-extrabold">
+                                        <step.icon size={isDesktop ? 30 : 20} />
+                                        <span className="xl:text-2xl text-lg font-extrabold">
                                             {step.value}
                                         </span>
                                     </div>
 
                                     <div className="text-sm">
-                                        <h4 className="text-xl font-semibold text-fundar-brand">
+                                        <h4 className="xl:text-xl text-lg font-semibold text-fundar-brand">
                                             {step.title}
                                         </h4>
-                                        <p>{step.description}</p>
+                                        <p className="text-xs lg:text-sm">
+                                            {step.description}
+                                        </p>
                                     </div>
                                 </motion.div>
                             ) : (

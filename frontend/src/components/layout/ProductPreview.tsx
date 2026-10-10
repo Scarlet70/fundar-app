@@ -4,7 +4,7 @@ import { BadgeCheck } from "lucide-react";
 
 const ProductPreview = () => {
     return (
-        <section className="flex flex-col lg:flex-row justify-between mb-25">
+        <section className="flex flex-col lg:flex-row justify-between mb-25 mt-50">
             <article className="lg:w-[calc(60%-1rem)] w-full">
                 <h3>Dashboard Ui</h3>
             </article>

@@ -14,8 +14,9 @@ const app = express();
 app.use(
     cors({
         origin:
-            /* "http://localhost:5173" */ env.FRONTEND_URL ||
-            "https://fundar-webapp-two.vercel.app",
+            env.NODE_ENV === "production"
+                ? env.FRONTEND_URL || "https://fundar-webapp-two.vercel.app"
+                : "http://localhost:5173",
         credentials: true,
     }),
 );

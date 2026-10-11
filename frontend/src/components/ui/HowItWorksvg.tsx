@@ -261,7 +261,7 @@ const HowItWorksvg = () => {
                        MOBILE CANVAS
                     ========================== */
 
-                    <div className="relative mx-auto h-[2000px] w-[320px] shrink-0 bg-slate-400">
+                    <div className="relative mx-auto h-[2000px] w-[320px] shrink-0">
                         <svg
                             width="320"
                             height="2000"

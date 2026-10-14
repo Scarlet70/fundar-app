@@ -1,5 +1,3 @@
-import { MoveRight } from "lucide-react";
-import { Button } from "../ui/button";
 import { Link } from "react-router-dom";
 import { DiaTextReveal } from "../ui/dia-text-reveal";
 import { BellIcon, Share2Icon, FileText, Calendar1 } from "lucide-react";

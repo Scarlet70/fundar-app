@@ -4,15 +4,24 @@ import Herosection from "@/components/layout/Herosection";
 import Features from "@/components/layout/Features";
 import HowItWorks from "@/components/layout/HowItWorks";
 import ProductPreview from "@/components/layout/ProductPreview";
+import FAQs from "@/components/layout/FAQs";
 import CallToAction from "@/components/layout/CallToAction";
 import Footer from "@/components/layout/Footer";
 import { WalletCards } from "lucide-react";
 import { Link } from "react-router-dom";
 import { AnimatedGridPattern } from "@/components/ui/animated-grid-pattern";
+import { ShimmerButton } from "@/components/ui/shimmer-button";
+import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler";
+import { useThemeStore } from "@/stores/themeStore";
 
 const LandingPage = () => {
+    const toggleMode = useThemeStore((state) => state.toggleMode);
+
     return (
-        <main className="fundar-font">
+        <main
+            id="#home"
+            className="fundar-font"
+        >
             <header className="flex flex-row justify-center lg:gap-35 gap-20 p-4 items-center fixed top-0 w-full [backdrop-filter:blur(8px)] z-50">
                 <span className="flex flex-row gap-1 items-center text-xl">
                     <WalletCards />
@@ -21,7 +30,7 @@ const LandingPage = () => {
                     </h2>
                 </span>
                 <Navbar />
-                <div className="flex flex-row gap-4 items-center">
+                <div className="flex flex-row xl:gap-4 gap-2 items-center">
                     <Link to={"/login"}>
                         <Button
                             variant="outline"
@@ -32,13 +41,14 @@ const LandingPage = () => {
                         </Button>
                     </Link>
                     <Link to={"/signup"}>
-                        <Button
-                            size="lg"
-                            className="rounded-2xl"
-                        >
+                        <ShimmerButton className="bg-transparent py-1 rounded-lg">
                             Create Account
-                        </Button>
+                        </ShimmerButton>
                     </Link>
+                    <AnimatedThemeToggler
+                        onClick={toggleMode}
+                        variant="hexagon"
+                    />
                 </div>
             </header>
             <AnimatedGridPattern className="pointer-events-none absolute inset-0 z-0" />
@@ -46,6 +56,7 @@ const LandingPage = () => {
             <Features />
             <HowItWorks />
             <ProductPreview />
+            <FAQs />
             <CallToAction />
             <Footer />
         </main>

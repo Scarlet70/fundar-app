@@ -145,7 +145,7 @@ const HowItWorksvg = () => {
         <section
             ref={sectionRef}
             className={`
-               ${isDesktop ? "relative h-[450vh]" : "relative h-[230vh] "}
+               ${isDesktop ? "relative h-[450vh]" : "relative h-[350vh] "}
             w-full`}
         >
             <article

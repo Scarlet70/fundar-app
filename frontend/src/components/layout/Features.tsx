@@ -11,6 +11,8 @@ import { BentoCard, BentoGrid } from "../ui/bento-grid";
 import { AnimatedListFundarUi } from "../animatedlistui";
 import { AnimatedBeamMultipleOutputFundarUi } from "../animatedbeamui";
 import { Particles } from "../ui/particles";
+import { InteractiveHoverButton } from "../ui/interactive-hover-button";
+import { useThemeStore } from "@/stores/themeStore";
 
 const incomes = [
     {
@@ -114,18 +116,23 @@ const features = [
 ];
 
 const Features = () => {
+    const currentMode = useThemeStore((state) => state.mode);
+
     return (
-        <section className="flex flex-col lg:flex-row justify-between p-8 mb-60 overflow-hidden relative ">
+        <section
+            id="features"
+            className="flex flex-col lg:flex-row justify-between p-8 mb-60 overflow-hidden relative "
+        >
             <Particles
                 quantity={300}
                 size={0.8}
                 vx={0.1}
                 vy={0.1}
-                color="var(--fundar-surface)"
+                color={currentMode === "dark" ? "#fff" : "#333"}
                 className="absolute top-0 w-full h-full"
             />
             <article className="flex flex-col gap-8 lg:w-[50%] w-full lg:pt-32 p-4  lg:p-2 mb-60 space-y-6 lg:space-y-8">
-                <h3 className="lg:text-[2.6rem] xl:text-[3.4rem] text-3xl text-slate-400">
+                <h3 className="lg:text-[2.6rem] xl:text-5xl text-3xl text-slate-400">
                     Everything you need to <br />
                     <DiaTextReveal
                         className="w-full"
@@ -145,9 +152,9 @@ const Features = () => {
                     financial habits—all in one place.
                 </p>
                 <Link to={"/dashboard"}>
-                    <Button className="w-1/2 p-6 rounded-4xl">
-                        Explore the App <MoveRight />
-                    </Button>
+                    <InteractiveHoverButton className="w-1/2 p-6 rounded-4xl">
+                        Explore the App
+                    </InteractiveHoverButton>
                 </Link>
             </article>
             <article className="flex flex-col gap-4 lg:w-[50%] w-full p-4">

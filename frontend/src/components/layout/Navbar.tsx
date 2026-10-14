@@ -14,25 +14,44 @@ const Navbar = () => {
                 <NavigationMenuItem>
                     <NavigationMenuTrigger>Features</NavigationMenuTrigger>
                     <NavigationMenuContent>
-                        <NavigationMenuLink>Allocation</NavigationMenuLink>
-                        <NavigationMenuLink>Track Expenses</NavigationMenuLink>
-                        <NavigationMenuLink>Link</NavigationMenuLink>
+                        <NavigationMenuLink>
+                            {" "}
+                            <a href="#features">what is Fundar</a>
+                        </NavigationMenuLink>
                     </NavigationMenuContent>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
                     <NavigationMenuTrigger>How it Works</NavigationMenuTrigger>
                     <NavigationMenuContent>
-                        <NavigationMenuLink>Link</NavigationMenuLink>
+                        <NavigationMenuLink>
+                            <a href="#howitworks">How to use Fundar</a>
+                        </NavigationMenuLink>
+                        <NavigationMenuLink>
+                            <a href="#preview">preview</a>
+                        </NavigationMenuLink>
                     </NavigationMenuContent>
                 </NavigationMenuItem>
-                <NavigationMenuItem>
-                    <NavigationMenuTrigger>Pricing</NavigationMenuTrigger>
-                    <NavigationMenuContent>
-                        <NavigationMenuLink>coming soon</NavigationMenuLink>
-                    </NavigationMenuContent>
-                </NavigationMenuItem>
+
                 <NavigationMenuItem>
                     <NavigationMenuTrigger>FAQs</NavigationMenuTrigger>
+                    <NavigationMenuContent>
+                        <NavigationMenuLink>
+                            <a href="#faqs">Have questions?</a>
+                        </NavigationMenuLink>
+                    </NavigationMenuContent>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                    <NavigationMenuTrigger>Contact</NavigationMenuTrigger>
+                    <NavigationMenuContent>
+                        <NavigationMenuLink>
+                            <a href="mailto:chetadev01@gmail.com">
+                                send an email
+                            </a>
+                        </NavigationMenuLink>
+                        <NavigationMenuLink>
+                            <a href="#footer">links</a>
+                        </NavigationMenuLink>
+                    </NavigationMenuContent>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
                     <NavigationMenuTrigger>Ai Insights</NavigationMenuTrigger>

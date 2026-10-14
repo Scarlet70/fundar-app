@@ -45,10 +45,7 @@ const LandingPage = () => {
                             Create Account
                         </ShimmerButton>
                     </Link>
-                    <AnimatedThemeToggler
-                        onClick={toggleMode}
-                        variant="hexagon"
-                    />
+                    <AnimatedThemeToggler onClick={toggleMode} />
                 </div>
             </header>
             <AnimatedGridPattern className="pointer-events-none absolute inset-0 z-0" />

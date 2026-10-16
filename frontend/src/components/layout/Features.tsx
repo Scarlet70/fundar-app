@@ -119,7 +119,7 @@ const Features = () => {
     return (
         <section
             id="features"
-            className="flex flex-col lg:flex-row justify-between p-8 mb-60 overflow-hidden relative "
+            className="flex flex-col lg:flex-row justify-between p-6 mb-60 overflow-hidden relative "
         >
             <Particles
                 quantity={300}
@@ -129,8 +129,8 @@ const Features = () => {
                 color={currentMode === "dark" ? "#fff" : "#333"}
                 className="absolute top-0 w-full h-full"
             />
-            <article className="flex flex-col gap-8 lg:w-[50%] w-full lg:pt-32 p-4  lg:p-2 mb-60 space-y-6 lg:space-y-8">
-                <h3 className="lg:text-[2.6rem] xl:text-5xl text-3xl text-slate-400">
+            <article className="flex flex-col gap-8 lg:w-[50%] w-full lg:pt-32 p-2  lg:p-2 mb-60 space-y-6 lg:space-y-8">
+                <h3 className="lg:text-[2.6rem] xl:text-5xl text-[1.8rem] text-slate-400">
                     Everything you need to <br />
                     <DiaTextReveal
                         className="w-full"
@@ -150,12 +150,12 @@ const Features = () => {
                     financial habits—all in one place.
                 </p>
                 <Link to={"/dashboard"}>
-                    <InteractiveHoverButton className="w-1/2 p-6 rounded-4xl">
+                    <InteractiveHoverButton className="xl:w-1/2 w-full p-6 rounded-3xl hover:shadow-xl shadow-fundar-brand-muted transition-shadow duration-200">
                         Explore the App
                     </InteractiveHoverButton>
                 </Link>
             </article>
-            <article className="flex flex-col gap-4 lg:w-[50%] w-full p-4">
+            <article className="flex flex-col gap-4 lg:w-[50%] w-full p-2">
                 <h3 className="text-center text-3xl text-underline">
                     CORE FEATURES
                 </h3>

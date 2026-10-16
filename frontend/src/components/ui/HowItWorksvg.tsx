@@ -78,13 +78,15 @@ const HowItWorksvg = () => {
             title: "Stay on Budget",
             description:
                 "Monitor your financial health with beautiful reports and AI-powered recommendations.",
-            positionXM: "left-40",
+            positionXM: "left-35",
             positionYM: "top-479.5",
             positionXD: "left-246",
             positionYD: "-bottom-7.5",
         },
     ];
-    const { width } = useWindowSize();
+
+    const { width = 0 } = useWindowSize();
+
     const [dotPosition, setDotPosition] = useState({
         x: 0,
         y: 0,
@@ -100,7 +102,7 @@ const HowItWorksvg = () => {
         offset: ["start start", "end end"],
     });
 
-    const pathProgress = useTransform(scrollYProgress, [-0.11, 1], [0, 1]);
+    const pathProgress = useTransform(scrollYProgress, [-0.06, 0.85], [0, 1]);
 
     useEffect(() => {
         const unsubscribe = pathProgress.on("change", (progress) => {
@@ -135,9 +137,46 @@ const HowItWorksvg = () => {
         setActiveStep(step);
     });
 
-    if (width === undefined) return null;
-
     const isDesktop = width >= 1024;
+
+    /*  useEffect(() => {
+        if (isDesktop) return;
+
+        const cards = document.querySelectorAll<HTMLElement>(
+            "[data-how-it-works-step]",
+        );
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                const visibleCards = entries
+                    .filter(
+                        (entry) =>
+                            entry.isIntersecting &&
+                            entry.intersectionRatio >= 0.4,
+                    )
+                    .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+                if (visibleCards.length > 0) {
+                    const index = Number(
+                        visibleCards[0].target.getAttribute(
+                            "data-how-it-works-step",
+                        ),
+                    );
+
+                    setActiveStep(index);
+                }
+            },
+            {
+                threshold: [0, 0.4, 0.6, 0.8, 1],
+            },
+        );
+
+        cards.forEach((card) => observer.observe(card));
+
+        return () => observer.disconnect();
+    }, [isDesktop, width]); */
+
+    if (width === undefined) return null;
 
     const path = isDesktop ? DESKTOP_PATH : MOBILE_PATH;
 
@@ -145,7 +184,13 @@ const HowItWorksvg = () => {
         <section
             ref={sectionRef}
             className={`
-               ${isDesktop ? "relative h-[450vh]" : "relative h-[350vh] "}
+               ${
+                   isDesktop
+                       ? "relative h-[450vh]"
+                       : !isDesktop && width > 500 && width < 1024
+                         ? "h-[330vh]"
+                         : "relative h-[270vh]"
+               }
             w-full`}
         >
             <article
@@ -312,6 +357,7 @@ const HowItWorksvg = () => {
                             return isActive ? (
                                 <motion.div
                                     key={step.step}
+                                    data-how-it-works-step={index}
                                     className={`absolute ${step.positionXM} ${step.positionYM} flex w-3/5 flex-col gap-2 shadow-2xl [backdrop-filter:blur(8px)] rounded-2xl p-2 border-3 border-t-fundar-brand border-r-fundar-brand shadow-fundar-brand-soft`}
                                     animate={{
                                         scale: 1.05,

@@ -26,8 +26,8 @@ const badgeVariants = cva(
 
                 fundar: "border-transparent bg-fundar-brand/10 text-fundar-brand",
 
-                tech: "border-transparent bg-purple-100 text-purple-700",
-                blue: "border-transparent bg-pink-100 text-pink-700",
+                tech: "border-transparent bg-purple-100 text-purple-700 dark:bg-purple-950 dark:text-purple-400",
+                blue: "border-transparent bg-pink-100 text-pink-700 dark:bg-blue-950 dark:text-blue-400",
             },
         },
         defaultVariants: {

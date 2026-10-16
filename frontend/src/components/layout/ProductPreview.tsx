@@ -119,14 +119,12 @@ const ProductPreview = () => {
                     </BlurFade>
                 </h3>
 
-                <p>
-                    <TextAnimate delay={0.25}>
-                        Every screen in Fundar is built to help you understand
-                        your finances at a glance. Clean visuals, meaningful
-                        insights, and powerful tools—all in one intuitive
-                        dashboard.
-                    </TextAnimate>
-                </p>
+                <TextAnimate delay={0.25}>
+                    Every screen in Fundar is built to help you understand your
+                    finances at a glance. Clean visuals, meaningful insights,
+                    and powerful tools—all in one intuitive dashboard.
+                </TextAnimate>
+
                 <ul className="flex flex-col gap-8">
                     {features.map((item) => (
                         <li
